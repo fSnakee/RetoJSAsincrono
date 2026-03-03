@@ -1,4 +1,6 @@
-body{
+
+
+html, body{
     background-color: #230312;
     color: white;
     text-align: center;
@@ -8,7 +10,7 @@ body{
 .mainContainer{
     display: grid;
     grid-template-columns: 2fr 1fr;
-    
+    grid-template-rows: 2fr 1fr;
 }
 
 .infoContainer{

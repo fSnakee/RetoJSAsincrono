@@ -1,18 +1,34 @@
 body{
-    background-color: rebeccapurple;
+    background-color: #230312;
+    color: white;
+    text-align: center;
+    font-size: 1.25em;
 }
 
 .mainContainer{
     display: grid;
+    grid-template-columns: 2fr 1fr;
     
-    grid-template-rows: 2fr;
-    background-color: aquamarine;
 }
 
 .infoContainer{
     background-color: aquamarine;
 }
 
+.emptyInfoContainer{
+
+}
+
 .favContainer{
-    background-color: aliceblue;
+    background-color: yellowgreen;
+}
+
+.emptyFavContainer{
+    
+}
+
+
+footer{
+    display: block;
+    
 }

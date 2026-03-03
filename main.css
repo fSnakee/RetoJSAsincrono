@@ -1,0 +1,12 @@
+.mainContainer{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.infoContainer{
+    background-color: aquamarine;
+}
+
+.favContainer{
+    background-color: aliceblue;
+}

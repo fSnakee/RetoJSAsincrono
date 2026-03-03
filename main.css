@@ -14,7 +14,26 @@ html, body{
 }
 
 .infoContainer{
+    display: grid;
     background-color: aquamarine;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    grid-template-areas: 
+    "title title"
+    "image ";
+
+}
+
+img{
+    width: 100%;
+}
+
+.title{
+    grid-area: title;
+}
+
+.image{
+    grid-area: image;
 }
 
 .emptyInfoContainer{

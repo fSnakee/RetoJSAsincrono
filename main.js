@@ -2,7 +2,7 @@
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
+    function random(){fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
         .then(response => response.json())
         .then(data => {
             const coctel = document.getElementsByClassName("infoContainer");
@@ -20,6 +20,10 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch(error => {
             console.error('Error fetching data:', error);
         });
+}
+random();
+const buttonRandom = document.getElementById("button-random");
+buttonRandom.addEventListener("click", random);
 });
 
 

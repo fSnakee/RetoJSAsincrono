@@ -10,7 +10,6 @@ html, body{
 .mainContainer{
     display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-template-rows: 2fr 1fr;
 }
 
 .infoContainer{
@@ -20,7 +19,9 @@ html, body{
     justify-content: center;
     grid-template-areas: 
     "title title"
-    "image ";
+    "image ingredients"
+    "instruction info";
+
 
 }
 
@@ -34,6 +35,10 @@ img{
 
 .image{
     grid-area: image;
+}
+
+.instruction{
+    grid-area: instruction;
 }
 
 .emptyInfoContainer{

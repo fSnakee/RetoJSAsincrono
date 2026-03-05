@@ -1,10 +1,11 @@
 
 
 html, body{
-    background-color: #230312;
-    color: #f7f7f7;
+    background-color: #0f0107;
+    color: #d6d6d6;
     text-align: center;
-    font-size: 1.25em;
+    font-size: 1.18em;
+    margin: 0;
 }
 
 .mainContainer{
@@ -57,14 +58,20 @@ html, body{
     margin-left: 0.5em;
 }
 
-h3{
-    margin: 0.5em;
+header{
+    position: sticky;
+    top: 0;
+    padding: 1em;
+    background-color: #0f0107;
+
 }
 
-footer p{
-    font-size: 0.8em;
-    margin: 0.5em;
+header h3{
+    margin: 0;
 }
+
+
+
 
 img{
     width: 80%;
@@ -74,21 +81,35 @@ img{
     grid-area: title;
 }
 
+.title h2{
+    margin: 0.5em auto
+}
+
 .image{
     grid-area: image;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .instruction{
     grid-area: instruction;
     margin: auto 1em;
+    line-height: 1.75em;
 }
 
 ul{
     text-align: left;
+    line-height: 2em;
+}
+
+.info p{
+    margin: 0.2em;
 }
 
 .infoContainer{
     height: 100%;
+    background-color: #230312
 }
 
 #emptyInfoContainer{
@@ -99,9 +120,9 @@ ul{
 }
 
 .favContainer{
-
+    padding: 1em;
     min-height: 100px;
-    padding: 10px;
+    background-color: #14020a;
 }
 .fav-item {
     background-color: #f0f0f0;
@@ -128,7 +149,13 @@ ul{
 .removeBtn:hover {
     background-color: darkred;
 }
+
 footer{
     display: block;
-    
+    margin: 1em;
+}
+
+footer p{
+    font-size: 0.8em;
+    margin: 0.5em;
 }

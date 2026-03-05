@@ -2,7 +2,7 @@
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    function random(){fetch("https://www.thecocktaildb.com/api/json/v1/1/random.ph")
+    function random(){fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
         .then(response => response.json())
         .then(data => {
             const coctel = document.getElementsByClassName("cocktailContainer");

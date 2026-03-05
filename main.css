@@ -11,7 +11,6 @@ html, body{
     display: grid;
     grid-template-columns: 2fr 1fr;
     justify-content: center;
-    align-items: center;
 }
 
 .cocktailContainer{
@@ -24,9 +23,23 @@ html, body{
     "instruction instruction";
 }
 
+.buttons{
+    background-color: blue;
+}
+
+#randomBtn, #favBtn{
+    background-color: red;
+    cursor: pointer;
+    margin: 1em;
+}
+
 #randomBtn{
     background-color: red;
     cursor: pointer;
+}
+
+#favBtn{
+    
 }
 
 img{
@@ -43,21 +56,28 @@ img{
 
 .instruction{
     grid-area: instruction;
+    margin: auto 1em;
+}
+
+ul{
+    text-align: left;
 }
 
 #emptyInfoContainer{
     background-color: wheat;
     display: none;
-    height: 100%;
+
     
 }
 
 .favContainer{
     background-color: yellowgreen;
+    display: flex;
+    align-items: center;
 }
 
 .emptyFavContainer{
-    
+
 }
 
 

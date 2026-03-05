@@ -10,22 +10,23 @@ html, body{
 .mainContainer{
     display: grid;
     grid-template-columns: 2fr 1fr;
+    justify-content: center;
+    align-items: center;
 }
 
 .cocktailContainer{
     display: grid;
     background-color: aquamarine;
     grid-template-columns: 1fr 1fr;
-    justify-content: center;
     grid-template-areas: 
     "title title"
     "image info"
     "instruction instruction";
 }
 
-.randomBtn{
+#randomBtn{
     background-color: red;
-    grid-area: randomBtn;
+    cursor: pointer;
 }
 
 img{
@@ -44,8 +45,11 @@ img{
     grid-area: instruction;
 }
 
-.emptyInfoContainer{
+#emptyInfoContainer{
+    background-color: wheat;
     display: none;
+    height: 100%;
+    
 }
 
 .favContainer{

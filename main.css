@@ -14,11 +14,8 @@ html, body{
     justify-content: center;
 }
 
-
-
 .cocktailContainer{
     display: grid;
-
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 
     "title title"
@@ -31,9 +28,9 @@ html, body{
 }
 
 #randomBtn, #favBtn{
-
     cursor: pointer;
-    margin: 1em;
+    margin: 1.5em 2em 1em 2em;
+    padding: 0.5em 2em;
 }
 
 #randomBtn{
@@ -51,7 +48,7 @@ html, body{
 }
 
 .fav-itemId{
-    font-size: 0.6em;
+    font-size: 0.7em;
 }
 
 .removeBtn{
@@ -63,17 +60,14 @@ header{
     top: 0;
     padding: 1em;
     background-color: #0f0107;
-
 }
 
 header h3{
     margin: 0;
 }
 
-
-
-
 img{
+    max-width: 320px;
     width: 80%;
 }
 
@@ -82,7 +76,7 @@ img{
 }
 
 .title h2{
-    margin: 0.5em auto
+    margin: 0em
 }
 
 .image{
@@ -98,18 +92,27 @@ img{
     line-height: 1.75em;
 }
 
+.info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 ul{
     text-align: left;
     line-height: 2em;
+    margin-top: 0;
 }
 
+
 .info p{
-    margin: 0.2em;
+    margin: 0.1em;
 }
 
 .infoContainer{
     height: 100%;
-    background-color: #230312
+    background-color: #230312;
+    
 }
 
 #emptyInfoContainer{

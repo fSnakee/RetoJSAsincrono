@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
                   }
                 coctelContainer.innerHTML = `
                     <div class="title"><h2>${drink.strDrink}</h2></div>
-                    <div class="image"><img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" style="width:200px;"></div>
+                    <div class="image"><img src="${drink.strDrinkThumb}" alt="${drink.strDrink}"></div>
                     <div class="info">
                         <p><strong>Categoría:</strong> ${drink.strCategory}</p>
                         <ul>${ingredients}</ul>

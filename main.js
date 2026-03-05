@@ -15,10 +15,10 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             coctel[0].innerHTML = 
               `<div class="title">
-                <h2>${data.drinks[0].strDrink} <strong>ID:</strong> ${data.drinks[0].idDrink}</h2>
+              <h2>${data.drinks[0].strDrink} <strong>ID:</strong> ${data.drinks[0].idDrink}</h2>
               </div>
               <div class="image">
-                <img src="${data.drinks[0].strDrinkThumb}" alt="${data.drinks[0].strDrink}">
+              <img src="${data.drinks[0].strDrinkThumb}" alt="${data.drinks[0].strDrink}">
               </div>
               <div class="info">
                 <p><strong>Categoria:</strong> ${data.drinks[0].strCategory}</p>
@@ -28,11 +28,11 @@ document.addEventListener('DOMContentLoaded', function () {
                   </ul>
               </div>
               <div class="instruction"><p><strong>Instructions:</strong> ${data.drinks[0].strInstructions}</p></div>`;
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-        });
-}
+            })
+            .catch(error => {
+              console.error('Error fetching data:', error);
+            });
+          }
 random();
 const buttonRandom = document.getElementById("button-random");
 buttonRandom.addEventListener("click", random);

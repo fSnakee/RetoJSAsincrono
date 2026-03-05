@@ -64,7 +64,18 @@ img{
     
 }
 
-
+.removeBtn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-top: 5px;
+}
+.removeBtn:hover {
+    background-color: darkred;
+}
 footer{
     display: block;
     

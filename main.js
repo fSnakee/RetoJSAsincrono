@@ -51,12 +51,12 @@ function favorito() {
     item.setAttribute("data-id", ultimoCoctel.idDrink);
     const idParaBuscar = ultimoCoctel.idDrink;
     item.innerHTML = `
-        <p>
+        <div class="itemFav">
             <img src="${ultimoCoctel.strDrinkThumb}" class="favImg">
-            <strong>${ultimoCoctel.strDrink}</strong> 
-            <span class="fav-itemId"><strong>ID:</strong> ${ultimoCoctel.idDrink}</span>
-            <button class="removeBtn">X</button>
-        </p>
+            <strong class="cocktailName">${ultimoCoctel.strDrink}</strong> 
+            <div><span class="fav-itemId"><strong>ID:</strong> ${ultimoCoctel.idDrink}</span>
+            <button class="removeBtn">X</button></div>
+        </div>
     `;
     item.addEventListener("click", function () {
         buscarID(idParaBuscar);

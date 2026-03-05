@@ -38,11 +38,19 @@ html, body{
     font-size: 0.5em;
 }
 
+.itemFav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
+.cocktailName{
+    text-wrap: balance;
+    max-width: 160px;
+}
 
 .fav-itemId{
-    font-size: 0.7em;
-    margin: auto 0.6em auto 0.4em;
+    font-size: 0.7em;    
 }
 
 .favImg{
@@ -143,7 +151,7 @@ ul{
     padding: 5px 10px;
     cursor: pointer;
     border-radius: 3px;
-    margin-top: 5px;
+    margin-left: 0.6em;
 }
 .removeBtn:hover {
     background-color: darkred;

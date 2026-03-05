@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function random(){fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
         .then(response => response.json())
         .then(data => {
-            const coctel = document.getElementsByClassName("infoContainer");
+            const coctel = document.getElementsByClassName("cocktailContainer");
             let ingredients = ""
 
             for (let i = 1; i <= 15; i++) {

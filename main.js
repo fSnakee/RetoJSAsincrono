@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
           }
 random();
-const buttonRandom = document.getElementById("button-random");
+const buttonRandom = document.getElementById("randomBtn");
 buttonRandom.addEventListener("click", random);
 });
 

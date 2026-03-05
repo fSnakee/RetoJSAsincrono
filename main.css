@@ -18,12 +18,16 @@ html, body{
     grid-template-columns: 1fr 1fr;
     justify-content: center;
     grid-template-areas: 
+    "randomBtn randomBtn"
     "title title"
     "image info"
     "instruction instruction";
 }
 
-
+.randomBtn{
+    background-color: red;
+    grid-area: randomBtn;
+}
 
 img{
     width: 100%;

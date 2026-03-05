@@ -12,12 +12,12 @@ document.addEventListener('DOMContentLoaded', function () {
             let ingredients = ""
             for (let i = 1; i <= 15; i++) {
               if (data.drinks[0][`strIngredient${i}`]) {
-                ingredients += `<li>${data.drinks[0][`strMeasure${i}`] || 'To taste '}${data.drinks[0][`strIngredient${i}`]}</li>`;
+                ingredients += `<li>${data.drinks[0][`strMeasure${i}`] || 'To taste '} ${data.drinks[0][`strIngredient${i}`]}</li>`;
               }
             }
             coctel[0].innerHTML = 
               `<div class="title">
-              <h2>${data.drinks[0].strDrink} <strong>ID:</strong> ${data.drinks[0].idDrink}</h2>
+              <h2>${data.drinks[0].strDrink} <span class="titleId"><strong>ID:</strong> ${data.drinks[0].idDrink}</span></h2>
               </div>
               <div class="image">
               <img src="${data.drinks[0].strDrinkThumb}" alt="${data.drinks[0].strDrink}">
@@ -37,6 +37,8 @@ document.addEventListener('DOMContentLoaded', function () {
               console.error('Error fetching data:', error);
             });
           }
+
+
     function favorito(){
       if(!ultimoCoctel)return;
       const favContainer = document.querySelector(".favContainer");
@@ -51,9 +53,8 @@ document.addEventListener('DOMContentLoaded', function () {
         item.classList.add("fav-item");
         item.setAttribute("data-id", ultimoCoctel.idDrink);
         item.innerHTML = `
-            <p><strong>${ultimoCoctel.strDrink}</strong></p>
-            <p><strong>ID:</strong>${ultimoCoctel.idDrink}</p>
-            <button class="removeBtn">X</button>
+            <p><strong>${ultimoCoctel.strDrink}</strong> <span class="fav-itemId"><strong>ID:</strong>${ultimoCoctel.idDrink}</span>
+            <button class="removeBtn">X</button></p>
         `;  
         const botonBorrar = item.querySelector(".removeBtn");
         botonBorrar.addEventListener("click", function() {

@@ -13,9 +13,11 @@ html, body{
     justify-content: center;
 }
 
+
+
 .cocktailContainer{
     display: grid;
-    background-color: aquamarine;
+
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 
     "title title"
@@ -24,26 +26,48 @@ html, body{
 }
 
 .buttons{
-    background-color: blue;
+
 }
 
 #randomBtn, #favBtn{
-    background-color: red;
+
     cursor: pointer;
     margin: 1em;
 }
 
 #randomBtn{
-    background-color: red;
-    cursor: pointer;
 }
 
 #favBtn{
-    
+}
+
+.titleId{
+    font-size: 0.5em;
+}
+
+.fav-item{
+    font-size: 0.8em;
+}
+
+.fav-itemId{
+    font-size: 0.6em;
+}
+
+.removeBtn{
+    margin-left: 0.5em;
+}
+
+h3{
+    margin: 0.5em;
+}
+
+footer p{
+    font-size: 0.8em;
+    margin: 0.5em;
 }
 
 img{
-    width: 100%;
+    width: 80%;
 }
 
 .title{
@@ -63,6 +87,10 @@ ul{
     text-align: left;
 }
 
+.infoContainer{
+    height: 100%;
+}
+
 #emptyInfoContainer{
     background-color: wheat;
     display: none;
@@ -71,7 +99,7 @@ ul{
 }
 
 .favContainer{
-    background-color: yellowgreen;
+
     min-height: 100px;
     padding: 10px;
 }

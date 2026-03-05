@@ -14,13 +14,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                   }
                 coctelContainer.innerHTML = `
-                    <div class="title"><h2>${drink.strDrink}</h2></div>
+                    <div class="title"><h2>${drink.strDrink}<span class="titleId"><strong> ID: </strong>${drink.idDrink}</span></h2></div>
                     <div class="image"><img src="${drink.strDrinkThumb}" alt="${drink.strDrink}"></div>
                     <div class="info">
-                        <p><strong>Categoría:</strong> ${drink.strCategory}</p>
+                        <p><strong>Category: </strong>${drink.strCategory}</p>
+                        <p><strong>Ingredients:</strong></p>
                         <ul>${ingredients}</ul>
                     </div>
-                    <div class="instruction"><p>${drink.strInstructions}</p></div>`;
+                    <div class="instruction"><p><strong>Instructions: </strong>${drink.strInstructions}</p></div>`;
             });
     }
 function random()
@@ -51,8 +52,9 @@ function favorito() {
     const idParaBuscar = ultimoCoctel.idDrink;
     item.innerHTML = `
         <p>
+            <img src="${ultimoCoctel.strDrinkThumb}" class="favImg">
             <strong>${ultimoCoctel.strDrink}</strong> 
-            <div class="fav-itemId"><strong>ID:</strong> ${ultimoCoctel.idDrink}</div>
+            <span class="fav-itemId"><strong>ID:</strong> ${ultimoCoctel.idDrink}</span>
             <button class="removeBtn">X</button>
         </p>
     `;

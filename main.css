@@ -29,31 +29,29 @@ html, body{
 
 #randomBtn, #favBtn{
     cursor: pointer;
-    margin: 1.5em 2em 1em 2em;
+    margin: 1.8em 2em 1em 2em;
     padding: 0.5em 2em;
 }
 
-#randomBtn{
-}
-
-#favBtn{
-}
-
 .titleId{
+    margin-left: 1em;
     font-size: 0.5em;
 }
 
-.fav-item{
-    font-size: 0.8em;
-}
+
 
 .fav-itemId{
     font-size: 0.7em;
+    margin: auto 0.6em auto 0.4em;
 }
 
-.removeBtn{
-    margin-left: 0.5em;
+.favImg{
+    max-width: 3.5em;
+    vertical-align: middle;
+    border-radius: 5px;
+    margin-right: 0.5em;
 }
+
 
 header{
     position: sticky;
@@ -69,6 +67,7 @@ header h3{
 img{
     max-width: 300px;
     width: 80%;
+    border-radius: 5px;
 }
 
 .title{
@@ -76,7 +75,7 @@ img{
 }
 
 .title h2{
-    margin: 0em 0em 0.6em 0em
+    margin: 0.2em 0em 0.8em 0em
 }
 
 .image{
@@ -89,24 +88,23 @@ img{
 .instruction{
     grid-area: instruction;
     margin: auto 1em;
-    line-height: 1.75em;
+    line-height: 1.5em;
 }
 
-.info{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.instruction p {
+    margin-top: 0.75em;
 }
 
 ul{
     text-align: left;
     line-height: 2em;
-    margin-top: 0;
+    margin-top: 0.5em;
+    margin-bottom: 0em;
 }
 
 
 .info p{
-    margin: 0.1em;
+    margin: 0.4em;
 }
 
 .infoContainer{
@@ -128,20 +126,18 @@ ul{
     background-color: #14020a;
 }
 .fav-item {
-    background-color: #f0f0f0;
+    background-color: #230312;
     margin-bottom: 5px;
     padding: 10px;
     border-radius: 5px;
-    color: black; 
+    font-size: 0.8em;
 }
-.emptyFavContainer{
 
-}
 .fa-solid.fa-star {
     color: gold;
 }
 .removeBtn {
-    background-color: red;
+    background-color: rgb(200, 0, 0);
     color: white;
     border: none;
     padding: 5px 10px;
@@ -151,6 +147,10 @@ ul{
 }
 .removeBtn:hover {
     background-color: darkred;
+}
+
+.removeBtn:active {
+    background-color: rgb(231, 0, 0);
 }
 
 footer{

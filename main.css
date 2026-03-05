@@ -72,10 +72,16 @@ ul{
 
 .favContainer{
     background-color: yellowgreen;
-    display: flex;
-    align-items: center;
+    min-height: 100px;
+    padding: 10px;
 }
-
+.fav-item {
+    background-color: #f0f0f0;
+    margin-bottom: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    color: black; 
+}
 .emptyFavContainer{
 
 }

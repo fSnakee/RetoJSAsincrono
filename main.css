@@ -19,11 +19,11 @@ html, body{
     justify-content: center;
     grid-template-areas: 
     "title title"
-    "image ingredients"
-    "instruction info";
-
-
+    "image info"
+    "instruction instruction";
 }
+
+
 
 img{
     width: 100%;

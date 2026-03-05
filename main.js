@@ -6,9 +6,11 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(response => response.json())
         .then(data => {
             const coctel = document.getElementsByClassName("infoContainer");
+            let ingredients = ""
+
             for (let i = 1; i <= 15; i++) {
               if (data.drinks[0][`strIngredient${i}`]) {
-                coctel[0].innerHTML += `${data.drinks[0][`strMeasure${i}`] || 'To taste '}${data.drinks[0][`strIngredient${i}`]}`;
+                ingredients += `<li>${data.drinks[0][`strMeasure${i}`] || 'To taste '}${data.drinks[0][`strIngredient${i}`]}</li>`;
               }
             }
             coctel[0].innerHTML = 
@@ -20,9 +22,10 @@ document.addEventListener('DOMContentLoaded', function () {
               </div>
               <div class="info">
                 <p><strong>Categoria:</strong> ${data.drinks[0].strCategory}</p>
-              </div>
-              <div class="ingredients">
                 <p><strong>Ingredients:</strong></p>
+                  <ul>
+                    ${ingredients}
+                  </ul>
               </div>
               <div class="instruction"><p><strong>Instructions:</strong> ${data.drinks[0].strInstructions}</p></div>`;
         })

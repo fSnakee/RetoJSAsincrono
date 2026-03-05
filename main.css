@@ -63,7 +63,9 @@ img{
 .emptyFavContainer{
     
 }
-
+.fa-solid.fa-star {
+    color: gold;
+}
 .removeBtn {
     background-color: red;
     color: white;

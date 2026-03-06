@@ -6,6 +6,8 @@ html, body{
     text-align: center;
     font-size: 1.18em;
     margin: 0;
+    scroll-behavior: smooth;
+    transition: 0.3s ease;
 }
 
 .mainContainer{
@@ -21,10 +23,6 @@ html, body{
     "title title"
     "image info"
     "instruction instruction";
-}
-
-.buttons{
-
 }
 
 #randomBtn, #favBtn{
@@ -55,7 +53,8 @@ html, body{
 
 .cocktailName{
     text-wrap: balance;
-    max-width: 160px;
+    margin: auto 0.2em;
+    flex-grow: 1;
 }
 
 .fav-itemId{
@@ -66,7 +65,6 @@ html, body{
     max-width: 3.5em;
     vertical-align: middle;
     border-radius: 5px;
-    margin-right: 0.5em;
 }
 
 
@@ -119,6 +117,10 @@ ul{
     margin-bottom: 0em;
 }
 
+.idRemoveBtn{
+    width: 93px;
+    text-wrap: nowrap;
+}
 
 .info p{
     margin: 0.4em;
@@ -199,11 +201,6 @@ ul{
     background-color: rgb(231, 0, 0);
 }
 
-
-.popUp{
-    display: none;
-}
-
 footer{
     display: block;
     margin: 1em;
@@ -232,6 +229,90 @@ footer p{
     border-color: #d6d6d6 transparent transparent transparent;
     border-radius: 50%;
     animation: spin 1s linear infinite;
+}
+
+@media (max-width: 1080px) {
+
+    #randomBtn, #favBtn{
+
+        margin: 1.8em 1em 1em 1em;
+        padding: 0.5em 1em;
+    }
+
+    .removeBtn{
+        margin: 0;
+        font-size: 0.75em;
+        padding: 3px 7px;
+    }
+
+    body{
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 768px){
+    .buttons{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 0.5em;
+    }
+    #randomBtn, #favBtn{
+        margin: 0.5em;
+        padding: 0.5em 1em;
+        width: 50%;
+        font-size: 0.8em;
+    }
+    body{
+        font-size: 0.8em;
+    }
+    ul{
+        padding: 0.5em;
+    }
+   
+}
+@media (max-width: 666px){
+    .favImg{
+        display: none;
+    }
+    
+}
+@media (max-width: 480px){
+    .mainContainer{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    body, #randomBtn, #favBtn{
+        font-size: 0.75em;
+    }
+    ul{
+        padding: 0.5em;
+    }
+    .cocktailContainer{
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "title"
+        "image"
+        "info"
+        "instruction";
+    }
+    .favImg{
+        display: block;
+    }
+    
+    .favContainer{
+        max-height: 110px;
+        scroll-margin: 0;
+        margin-bottom: 1em;
+    }
+
+    .buttons{
+        margin: 1em auto;
+    }
+
+    .titleId{
+        display: block;
+    }
 }
 
 @keyframes spin {

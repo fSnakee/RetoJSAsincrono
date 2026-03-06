@@ -83,10 +83,12 @@ document.addEventListener('DOMContentLoaded', function () {
         
         const emptyMsg = document.querySelector(".emptyFavContainer");
         if (favoritos.length === 0) {
+            emptyMsg.style.display = "block "
             loadFavContainer.style.display = "none"
             return;
         }
         if (emptyMsg) emptyMsg.style.display = "none";
+
 
         favoritos.forEach(fav => {
 
@@ -106,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="itemFav">
                 <img src="${drink.strDrinkThumb}" class="favImg">
                 <strong class="cocktailName">${drink.strDrink}</strong> 
-                <div>
+                <div class="idRemoveBtn">
                     <span class="fav-itemId"><strong>ID:</strong> ${drink.idDrink}</span>
                     <button class="removeBtn">X</button>
                 </div>

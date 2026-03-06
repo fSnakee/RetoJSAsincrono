@@ -49,12 +49,17 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem("favoritos", JSON.stringify(favoritos));
     }
     function favorito() {
+        
+        const loadFavContainer = document.getElementById("loadFavContainer");
+        loadFavContainer.style.display = "block"
+
         if (!ultimoCoctel) return;
-
+        
         const yaGuardado = favoritos.find(f => f.id === ultimoCoctel.idDrink);
-
+        
         if (yaGuardado) {
             alert("Este cóctel ya está en tus favoritos");
+            loadFavContainer.style.display = "none"
             return;
         }
 
@@ -73,8 +78,12 @@ document.addEventListener('DOMContentLoaded', function () {
         const favContainer = document.getElementById("favItemContainer");
         favContainer.innerHTML = "";
 
+        const loadFavContainer = document.getElementById("loadFavContainer");
+        const emptyFavContainer = document.getElementById("emptyFavContainer");
+        
         const emptyMsg = document.querySelector(".emptyFavContainer");
         if (favoritos.length === 0) {
+            loadFavContainer.style.display = "none"
             return;
         }
         if (emptyMsg) emptyMsg.style.display = "none";
@@ -84,6 +93,8 @@ document.addEventListener('DOMContentLoaded', function () {
             fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${fav.id}`)
                 .then(response => response.json())
                 .then(data => {
+
+                    loadFavContainer.style.display = "none"
 
                     const drink = data.drinks[0];
 
@@ -110,6 +121,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     botonBorrar.addEventListener("click", function (e) {
                         e.stopPropagation();
+
+                        const loadFavContainer = document.getElementById("loadFavContainer");
+                        loadFavContainer.style.display = "block"
 
                         favoritos = favoritos.filter(f => f.id !== drink.idDrink);
                         guardarFavoritos();

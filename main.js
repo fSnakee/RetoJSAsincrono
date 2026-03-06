@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const yaGuardado = favoritos.find(f => f.id === ultimoCoctel.idDrink);
         
         if (yaGuardado) {
-            alert("Este cóctel ya está en tus favoritos");
+            document.getElementById("alreadyFavPopup").style.display = "flex";
             loadFavContainer.style.display = "none"
             return;
         }
@@ -146,6 +146,14 @@ document.addEventListener('DOMContentLoaded', function () {
     buttonFav.addEventListener("click", favorito);
     const buttonRandom = document.getElementById("randomBtn");
     buttonRandom.addEventListener("click", random);
+
+    const popupCloseBtn = document.getElementById("popupCloseBtn");
+    popupCloseBtn.addEventListener("click", function () {
+        document.getElementById("alreadyFavPopup").style.display = "none";
+    });
+    document.getElementById("alreadyFavPopup").addEventListener("click", function (e) {
+        if (e.target === this) this.style.display = "none";
+    });
 });
 
 

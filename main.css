@@ -15,7 +15,7 @@ html, body{
 }
 
 .cocktailContainer{
-    display: grid;
+    display: none;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 
     "title title"
@@ -31,6 +31,15 @@ html, body{
     cursor: pointer;
     margin: 1.8em 2em 1em 2em;
     padding: 0.5em 2em;
+    background-color: #14020a;
+    font-weight: bold;
+    color: #d6d6d6;
+    transition: 0.075s ease-out;
+}
+
+#randomBtn:hover, #favBtn:hover{
+    background-color: #450624;
+    transition: 0.075s ease-in;
 }
 
 .titleId{
@@ -122,16 +131,36 @@ ul{
 }
 
 #emptyInfoContainer{
-    background-color: wheat;
     display: none;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1em;
+}
 
-    
+.notFoundIcon{
+    width: 10em;
+}
+
+#loadContainer{
+    display: flex;
+    flex-direction: column;
+
+}
+
+#loadFavContainer{
+    display: block;
 }
 
 .favContainer{
     padding: 1em;
-    min-height: 100px;
+    max-height: 60vh;
     background-color: #14020a;
+    overflow-y: auto;
+    scrollbar-color: blue;
+    scrollbar-width: thin;
+    scroll-margin: 1em;
+
 }
 .fav-item {
     background-color: #230312;
@@ -139,6 +168,13 @@ ul{
     padding: 10px;
     border-radius: 5px;
     font-size: 0.8em;
+    cursor: pointer;
+    transition: 0.075s ease-out;
+}
+
+.fav-item:hover{
+    background-color: #450624;
+    transition: 0.075s ease-in;
 }
 
 .fa-solid.fa-star {
@@ -146,19 +182,26 @@ ul{
 }
 .removeBtn {
     background-color: rgb(200, 0, 0);
-    color: white;
+    color: #d6d6d6;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
     border-radius: 3px;
     margin-left: 0.6em;
+    transition: 0.075s ease-out;
 }
 .removeBtn:hover {
     background-color: darkred;
+    transition: 0.075s ease-in;
 }
 
 .removeBtn:active {
     background-color: rgb(231, 0, 0);
+}
+
+
+.popUp{
+    display: none;
 }
 
 footer{
@@ -169,4 +212,30 @@ footer{
 footer p{
     font-size: 0.8em;
     margin: 0.5em;
+}
+
+.spinner{
+    width: 10em;
+    height: 10em;
+    border: 6px solid #d6d6d6;
+    margin: 0 auto 2em auto;
+    border-color: #d6d6d6 transparent transparent transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.spinner2{
+    width: 6em;
+    height: 6em;
+    border: 6px solid #d6d6d6;
+    margin: 0 auto 2em auto;
+    border-color: #d6d6d6 transparent transparent transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to{
+        transform: rotate(360deg);
+    }    
 }

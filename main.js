@@ -5,9 +5,12 @@ document.addEventListener('DOMContentLoaded', function () {
         fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`)
             .then(response => response.json())
             .then(data => {
+                const loadContainer = document.getElementById("loadContainer")
+                loadContainer.style.display = "none"
                 const drink = data.drinks[0];
                 ultimoCoctel = drink;
-                const coctelContainer = document.querySelector(".cocktailContainer");
+                const coctelContainer = document.getElementById("cocktailContainer");
+                coctelContainer.style.display = "grid"
                 let ingredients = "";
                 for (let i = 1; i <= 15; i++) {
                     if (drink[`strIngredient${i}`]) {
@@ -30,6 +33,10 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(response => response.json())
             .then(data => {
                 buscarID(data.drinks[0].idDrink);
+                const coctelContainer = document.getElementById("cocktailContainer");
+                coctelContainer.style.display = "none"
+                const loadContainer = document.getElementById("loadContainer")
+                loadContainer.style.display = "flex"
             })
             .catch(error => {
                 const empty = document.getElementById("emptyInfoContainer");
@@ -63,16 +70,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function cargarFavoritos() {
 
-        const favContainer = document.querySelector(".favContainer");
+        const favContainer = document.getElementById("favItemContainer");
         favContainer.innerHTML = "";
 
         const emptyMsg = document.querySelector(".emptyFavContainer");
         if (favoritos.length === 0) {
-            favContainer.innerHTML = `
-        <div class="emptyFavContainer">
-            <p>You don't have any favorite cocktail. Add a cocktail to see it here.</p>
-        </div>
-    `;
             return;
         }
         if (emptyMsg) emptyMsg.style.display = "none";

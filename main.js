@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
-  let ultimoCoctel=null;
-  function buscarID(id) {
+    let ultimoCoctel = null;
+    let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+    function buscarID(id) {
         fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`)
             .then(response => response.json())
             .then(data => {
@@ -12,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (drink[`strIngredient${i}`]) {
                         ingredients += `<li>${drink[`strMeasure${i}`] || 'To taste '} ${drink[`strIngredient${i}`]}</li>`;
                     }
-                  }
+                }
                 coctelContainer.innerHTML = `
                     <div class="title"><h2>${drink.strDrink}<span class="titleId"><strong> ID: </strong>${drink.idDrink}</span></h2></div>
                     <div class="image"><img src="${drink.strDrinkThumb}" alt="${drink.strDrink}"></div>
@@ -24,58 +25,109 @@ document.addEventListener('DOMContentLoaded', function () {
                     <div class="instruction"><p><strong>Instructions: </strong>${drink.strInstructions}</p></div>`;
             });
     }
-function random()
-  {fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
-    .then(response => response.json())
-    .then(data => {
-        buscarID(data.drinks[0].idDrink); 
-        })
-        .catch(error => {
-          const empty = document.getElementById("emptyInfoContainer");
-          empty.style.display = "flex"
-          console.error('Error fetching data:', error);
-        });
-      }
-function favorito() {
-    if (!ultimoCoctel) return;
-    const favContainer = document.querySelector(".favContainer");
-    const yaExiste = favContainer.querySelector(`[data-id="${ultimoCoctel.idDrink}"]`);
-    if (yaExiste) {
-        alert("Este cóctel ya está en tus favoritos");
-        return;
+    function random() {
+        fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
+            .then(response => response.json())
+            .then(data => {
+                buscarID(data.drinks[0].idDrink);
+            })
+            .catch(error => {
+                const empty = document.getElementById("emptyInfoContainer");
+                empty.style.display = "flex"
+                console.error('Error fetching data:', error);
+            });
     }
-    const emptyMsg = document.querySelector(".emptyFavContainer");
-    if (emptyMsg) emptyMsg.style.display = "none";
-    const item = document.createElement("div");
-    item.classList.add("fav-item");
-    item.setAttribute("data-id", ultimoCoctel.idDrink);
-    const idParaBuscar = ultimoCoctel.idDrink;
-    item.innerHTML = `
-        <div class="itemFav">
-            <img src="${ultimoCoctel.strDrinkThumb}" class="favImg">
-            <strong class="cocktailName">${ultimoCoctel.strDrink}</strong> 
-            <div><span class="fav-itemId"><strong>ID:</strong> ${ultimoCoctel.idDrink}</span>
-            <button class="removeBtn">X</button></div>
+
+    function guardarFavoritos() {
+        localStorage.setItem("favoritos", JSON.stringify(favoritos));
+    }
+    function favorito() {
+        if (!ultimoCoctel) return;
+
+        const yaGuardado = favoritos.find(f => f.id === ultimoCoctel.idDrink);
+
+        if (yaGuardado) {
+            alert("Este cóctel ya está en tus favoritos");
+            return;
+        }
+
+        favoritos.push({
+            id: ultimoCoctel.idDrink,
+            nombre: ultimoCoctel.strDrink
+        });
+
+        guardarFavoritos();
+
+        cargarFavoritos();
+    }
+
+    function cargarFavoritos() {
+
+        const favContainer = document.querySelector(".favContainer");
+        favContainer.innerHTML = "";
+
+        const emptyMsg = document.querySelector(".emptyFavContainer");
+        if (favoritos.length === 0) {
+            favContainer.innerHTML = `
+        <div class="emptyFavContainer">
+            <p>You don't have any favorite cocktail. Add a cocktail to see it here.</p>
         </div>
     `;
-    item.addEventListener("click", function () {
-        buscarID(idParaBuscar);
-    });
-    const botonBorrar = item.querySelector(".removeBtn");
-    botonBorrar.addEventListener("click", function (e) {
-        e.stopPropagation();
-        item.remove();
-        if (favContainer.querySelectorAll(".fav-item").length === 0) {
-            if (emptyMsg) emptyMsg.style.display = "block";
+            return;
         }
-    });
-    favContainer.appendChild(item);
-}
-random();
-const buttonFav = document.getElementById("favBtn");
-buttonFav.addEventListener("click", favorito);
-const buttonRandom = document.getElementById("randomBtn");
-buttonRandom.addEventListener("click", random);
+        if (emptyMsg) emptyMsg.style.display = "none";
+
+        favoritos.forEach(fav => {
+
+            fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${fav.id}`)
+                .then(response => response.json())
+                .then(data => {
+
+                    const drink = data.drinks[0];
+
+                    const item = document.createElement("div");
+                    item.classList.add("fav-item");
+                    item.setAttribute("data-id", drink.idDrink);
+
+                    item.innerHTML = `
+            <div class="itemFav">
+                <img src="${drink.strDrinkThumb}" class="favImg">
+                <strong class="cocktailName">${drink.strDrink}</strong> 
+                <div>
+                    <span class="fav-itemId"><strong>ID:</strong> ${drink.idDrink}</span>
+                    <button class="removeBtn">X</button>
+                </div>
+            </div>
+            `;
+
+                    item.addEventListener("click", function () {
+                        buscarID(drink.idDrink);
+                    });
+
+                    const botonBorrar = item.querySelector(".removeBtn");
+
+                    botonBorrar.addEventListener("click", function (e) {
+                        e.stopPropagation();
+
+                        favoritos = favoritos.filter(f => f.id !== drink.idDrink);
+                        guardarFavoritos();
+
+                        cargarFavoritos();
+                    });
+
+                    favContainer.appendChild(item);
+
+                });
+
+        });
+    }
+
+    cargarFavoritos();
+    random();
+    const buttonFav = document.getElementById("favBtn");
+    buttonFav.addEventListener("click", favorito);
+    const buttonRandom = document.getElementById("randomBtn");
+    buttonRandom.addEventListener("click", random);
 });
 
 
